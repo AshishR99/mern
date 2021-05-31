@@ -101,7 +101,7 @@ const Navbar = () => {
 
             
           )}
-
+{/* 
 <Button
               component={Link}
               to="/auth"
@@ -109,7 +109,7 @@ const Navbar = () => {
               color="primary"
             >
               PhotoBooks
-            </Button>
+            </Button> */}
         </Toolbar>
       </AppBar>
     </div>
