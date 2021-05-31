@@ -19,6 +19,11 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use('/user' , userRoutes);
 
+app.get('/', (req, res) => {
+res.send('app is running..')
+
+})
+
 
 
 // const CONNECTION_URL = 'mongodb://localhost:27017/testmemories';
