@@ -20,9 +20,11 @@ app.use('/posts', postRoutes);
 app.use('/user' , userRoutes);
 
 app.get('/', (req, res) => {
-res.send('app is running..')
+res.send('app is running succesfully..')
 
-})
+});
+
+
 
 
 
