@@ -26,7 +26,7 @@ export default makeStyles((theme) => ({
   alsoLike: {
 
     backgroundColor: "coral",
-    marginTop: "6%"
+    marginTop: "8%"
     // textAlign:"center",
 
   },
