@@ -50,10 +50,10 @@ const PostDetails = () => {
     const recommendedPosts = posts.filter(({ _id }) => _id !== post._id);
 
   return (
-    <Paper style={{ padding: "20px", borderRadius: "15px" }} elevation={6}>
+    <Paper style={{ padding: "20px", borderRadius: "15px", marginLeft:"2px", marginTop:"90px" }} elevation={6}>
       <div className={classes.card}>
-        <div className={classes.section}>
-          <Typography variant="h3" component="h2" >
+        <div className={classes.section1}>
+          <Typography variant="h4" >
             {post.title}
           </Typography>
           <Typography
@@ -89,17 +89,23 @@ const PostDetails = () => {
           />
         </div>
       </div>
+      
+      
       {!!recommendedPosts.length && (
-        <div className={classes.section} >
-          <Typography gutterBottom variant="h5" className={classes.alsoLike}>You might also like:</Typography>
+        
+        <div className={classes.sections}>
           <Divider />
+          <Typography gutterBottom variant="h5"
+           className={classes.alsoLike}>You might also like:</Typography>
+          <Divider />
+          
           <div className={classes.recommendedPosts}>
             {recommendedPosts.map(({ title, name, message, likes, selectedFile, _id }) => (
               <div style={{ margin: '20px', cursor: 'pointer' }} onClick={() => openPost(_id)} key={_id}>
-                <Typography gutterBottom variant="h6" className={classes.title}>{title}</Typography>
-                <Typography gutterBottom variant="subtitle2">{name}</Typography>
-                <Typography gutterBottom variant="subtitle2">{message}</Typography>
-                <Typography gutterBottom className={classes.likes} variant="subtitle1">Likes: {likes.length}</Typography>
+                <Typography  variant="h6" className={classes.title}>{title}</Typography>
+                <Typography variant="subtitle2">{name}</Typography>
+                <Typography  variant="subtitle2">{message}</Typography>
+                <Typography  className={classes.likes} variant="subtitle1">Likes: {likes.length}</Typography>
                 <img src={selectedFile} width="220px"  className={classes.photo} />
               </div>
             ))}

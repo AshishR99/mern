@@ -11,16 +11,21 @@ import {
 } from "@material-ui/core";
 import { GoogleLogin } from "react-google-login";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import Icon from "./icon";
 // import { signin, signup } from '../../actions/auth';
 import { AUTH } from "../../constants/actionTypes";
 import useStyles from "./styles";
 import Input from "./Input";
-import { signin, signup} from '../../actions/auth';
+import { signin, signup } from "../../actions/auth";
 
-const initialState = { firstName:'', lastName:'', email:'', password:'', confirmPassword: ''}
-
+const initialState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -32,20 +37,17 @@ const Auth = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-        console.log(formdata);
+    console.log(formdata);
 
-        if (isSignup) {
-          dispatch(signup(formdata, history))
-          
-        } else {
-          dispatch(signin(formdata, history))
-          
-        }
+    if (isSignup) {
+      dispatch(signup(formdata, history));
+    } else {
+      dispatch(signin(formdata, history));
+    }
   };
 
   const handleChange = (e) => {
-
-    setFormdata({...formdata, [e.target.name]: e.target.value});
+    setFormdata({ ...formdata, [e.target.name]: e.target.value });
   };
 
   const googleSuccess = async (res) => {
@@ -55,7 +57,7 @@ const Auth = () => {
     try {
       dispatch({ type: AUTH, data: { result, token } });
 
-      history.push('/posts')
+      history.push("/posts");
     } catch (error) {
       console.log(error);
     }

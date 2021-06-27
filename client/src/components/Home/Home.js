@@ -8,6 +8,8 @@ import {
   Button,
   Paper,
 } from "@material-ui/core";
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import useStyles from "./styles";
@@ -108,17 +110,27 @@ const Home = () => {
                 Search
               </Button>
             </AppBar>
+
+            
+
             <Form currentId={currentId} setCurrentId={setCurrentId} />
-            {(!searchQuery && !tags.length) && (
+          
+            
+            {/* {(!searchQuery && !tags.length) && (
               <Paper elevation={12} className={classes.pagination}>
                 <Pagination page={page} />
               </Paper>
-            )}
+            )} */}
           </Grid>
         </Grid>
         {/* <Paper className={classes.paper}>
 <Typography variant="h5">Please sign in to create your own photobook album</Typography>
  </Paper> */}
+ {(!searchQuery && !tags.length) && (
+              <Paper elevation={12} className={classes.pagination}>
+                <Pagination page={page} />
+              </Paper>
+            )}
       </Container>
     </Grow>
   );

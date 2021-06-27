@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { getPosts } from '../../actions/posts'
 import useStyles from './styles';
+import { Grid } from '@material-ui/core';
 
 const Paginate = ({ page }) => {
   const { numberOfPages } = useSelector((state) => state.posts);
@@ -19,6 +20,9 @@ const Paginate = ({ page }) => {
   }, [dispatch, page]);
 
   return (
+
+    <>
+    <Grid direction row> 
     <Pagination
       classes={{ ul: classes.ul }}
       count={numberOfPages}
@@ -29,6 +33,8 @@ const Paginate = ({ page }) => {
         <PaginationItem {...item} component={Link} to={`/posts?page=${item.page}`} />
       )}
     />
+    </Grid>
+    </>
   );
 };
 

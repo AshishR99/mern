@@ -9,12 +9,14 @@ import { getPosts } from "./actions/posts";
 import memories from "./images/memories.jpg";
 import useStyles from "./styles";
 import Navbar from "./components/Navbar/Navbar";
+import SideBar from './components/Sidebar/Sidebar';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
 import Sidenav from "./components/Sidenav/Sidenav";
 import Dashboard from "./components/Dashboard/Dashboard";
 import PostDetails from "./components/PostDetails/PostDetails";
+import Editform from "./components/Form/Editform";
 
 const App = () => {
   // const [currentId, setCurrentId] = useState(0);
@@ -29,13 +31,19 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Container maxWidth="xl">
-        <Navbar />
+      <Container maxWidth="xl" style={{ backgroundImage:"linear-gradient(to right, #1fb726, #009277, #006691, #00376f, #1a0a2e)"}}>
+
+      <SideBar />
+        {/* <Navbar /> */}
+        
         {/* <Sidenav /> */}
         <Switch>
           <Route path="/" exact component={() => <Redirect to="/posts" />} />
           <Route path="/posts" exact component={Home} />
           <Route path="/posts/search" exact component={Home} />
+          {/* <Route path="/forms" exact component={Editform} /> */}
+          {/* <Route path="/forms" exact component={Form} /> */}
+          {/* <Form currentId={currentId} setCurrentId={setCurrentId} /> */}
           <Route path="/posts/:id" exact component={PostDetails} />
           <Route path="/auth" exact component={() => (!user ? <Auth /> : <Redirect to="/posts" />)} />
         </Switch>

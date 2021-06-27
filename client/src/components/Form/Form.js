@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FileBase from "react-file-base64";
 import { createPost, updatePost } from "../../actions/posts";
 import { useHistory} from 'react-router-dom';
+import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
@@ -117,15 +118,16 @@ const Form = ({ currentId, setCurrentId }) => {
           />
         </div>
 
-        <Button
-          className={classes.buttonSubmit}
+        <Button style={{textTransform: 'none'}}
+          className={classes.buttonSubmit }
           variant="contained"
           color="primary"
           size="large"
           type="submit"
           fullWidth
         >
-          Submit
+        
+          Post Your Photo
         </Button>
 
         <Button
